@@ -9,6 +9,12 @@ Modification of original VScreenML module (https://www.pnas.org/content/117/31/1
 Example of script
 
 ```python
+from vscreenml_v2 import pyrosetta_wrapper
+from vscreenml_v2 import rdkit_wrapper
+from vscreenml_v2 import rfscore_wrapper
+from vscreenml_v2 import binana_wrapper
+from oddt.toolkits.extras.rdkit import MolToPDBQTBlock
+
 pdb = "mini_1a6v_NPC_H_decoys_1.pdb"
 params = "1a6v_NPC_H_decoys_1.params"
 
