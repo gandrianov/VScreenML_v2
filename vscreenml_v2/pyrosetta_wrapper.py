@@ -101,11 +101,13 @@ def LoadPDB(pdbfile):
 
     def PreprocessPDB(pdb_string):
         # available letters
-        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789"
 
         # collect chains with protein from PDB file
         chains = [r[21] for r in pdb_string.split("\n") if r.startswith("ATOM")]
         chains = set(chains)    
+
+        print(letters, chains, set(letters).difference(chains))
 
         het_chain = list(set(letters).difference(chains))[0]
 
