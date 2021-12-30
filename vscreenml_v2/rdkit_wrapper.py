@@ -392,8 +392,6 @@ def ReadProteinPDB(pdb_string):
     # connect terminal C and extra oxigen
     rwmol.AddBond(atoms[max(atoms)].atoms["C"], atoms[max(atoms)].atoms["OXT"], Chem.BondType.SINGLE)
 
-    print(atoms)
-
     # get read-only RDKit.Mol
     mol = rwmol.GetMol()
     mol = solve_problem(mol)

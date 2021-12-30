@@ -13,7 +13,7 @@ from pyrosetta.rosetta.core.pose import renumber_pdbinfo_based_on_conf_chains
 from pyrosetta.rosetta.protocols.rigid import RigidBodyTransMover
 
 # energy terms
-from pyrosetta.rosetta.core.scoring import fa_atr, fa_atr, fa_rep, fa_sol
+from pyrosetta.rosetta.core.scoring import fa_atr, fa_rep, fa_sol, gen_bonded
 from pyrosetta.rosetta.core.scoring import fa_elec, hbond_bb_sc, hbond_sc
 
 # calculators
@@ -203,6 +203,7 @@ def GetEnergyTerms(bound, unbond, sfxn):
     data["fa_elec"] = bou_emap[fa_elec] - ubo_emap[fa_elec]
     data["hbond_bb_sc"] = bou_emap[hbond_bb_sc] - ubo_emap[hbond_bb_sc]
     data["hbond_sc"] = bou_emap[hbond_sc] - ubo_emap[hbond_sc]
+    data["gen_bonded"] = bou_emap[gen_bonded]
     
     return data
     
