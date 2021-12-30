@@ -350,6 +350,13 @@ def ReadProteinPDB(pdb_string):
     for i, (residue_num, aminoacid) in enumerate(atoms.items()):
         residue_name = aminoacid.name
         for atom_name, mol_index in aminoacid.atoms.items():
+
+            if atom_name in ["1H", "2H", "3H"]:
+                
+                rwmol.AddBond(mol_index, 
+                              atoms[residue_num].atoms["N"],
+                              Chem.BondType.SINGLE)
+                
             # connect backbone N of aa with backbone C of aa - 1 
             if atom_name == "N":
                 # need for skipping first amino acid in the sequence
@@ -376,14 +383,16 @@ def ReadProteinPDB(pdb_string):
                                   bond_types[bond_order])
 
 
-    # connect terminal N and Hs
-    for i in range(3):
-        rwmol.AddBond(atoms[min(atoms)].atoms["N"],
-                      atoms[min(atoms)].atoms[f"{i+1}H"],
-                      Chem.BondType.SINGLE)
+    # # connect terminal N and Hs
+    # for i in range(3):
+    #     rwmol.AddBond(atoms[min(atoms)].atoms["N"],
+    #                   atoms[min(atoms)].atoms[f"{i+1}H"],
+    #                   Chem.BondType.SINGLE)
 
     # connect terminal C and extra oxigen
     rwmol.AddBond(atoms[max(atoms)].atoms["C"], atoms[max(atoms)].atoms["OXT"], Chem.BondType.SINGLE)
+
+    print(atoms)
 
     # get read-only RDKit.Mol
     mol = rwmol.GetMol()
