@@ -107,8 +107,6 @@ def LoadPDB(pdbfile):
         chains = [r[21] for r in pdb_string.split("\n") if r.startswith("ATOM")]
         chains = set(chains)    
 
-        print(letters, chains, set(letters).difference(chains))
-
         het_chain = list(set(letters).difference(chains))[0]
 
         new_pdb_string = []
