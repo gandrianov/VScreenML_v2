@@ -18,7 +18,7 @@ from vscreenml_v2 import binana_wrapper
 from oddt.toolkits.extras.rdkit import MolToPDBQTBlock
 
 
-if __name__ == "__main__"
+if __name__ == "__main__":
 
     pdb = sys.argv[1] #"minimizations/mini_complex_1a28_STR_A_active.pdb"
     params = sys.argv[2] #"LigandAlignmentsPDBParams/mini_complex_1a28_STR_A_active.params"
