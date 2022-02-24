@@ -9,6 +9,7 @@ Modification of original VScreenML module (https://www.pnas.org/content/117/31/1
 Example of script
 
 ```python
+import pandas as pd
 import sys, json, glob
 
 from vscreenml_v2 import pyrosetta_wrapper
@@ -62,10 +63,13 @@ if __name__ == "__main__":
 
     features.update(rdkit_wrapper.CalcRDKitFeatures(ligand_pdb))
 
-    with open(sys.argv[3], "w") as fwr:
-        json = json.dumps(features)
-        fwr.write(json)
-        fwr.close()
+    features = pd.DataFrame(features)
+    features.to_csv(sys.argv[3], index=False)
+
+    #with open(sys.argv[3], "w") as fwr:
+    #    json = json.dumps(features)
+    #    fwr.write(json)
+    #    fwr.close()
 
 ```
 
