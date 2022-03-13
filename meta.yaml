@@ -22,6 +22,6 @@ requirements:
     - oddt
 
 about:
-  home: https://github.com/choderalab/perses
+  home: https://github.com/gandrianov/VScreenML_v2
   license: MIT
   license_file: LICENSE
