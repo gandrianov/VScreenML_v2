@@ -61,7 +61,10 @@ def calc_features(pdb, params):
 
     features.update(rdkit_wrapper.CalcRDKitFeatures(ligand_pdb))
 
-    return pd.DataFrame(features)
+    values = list(features.values())
+    keys = list(features.keys())
+
+    return pd.DataFrame([values], columns=keys)
 
 
 def predict_class(features, model):
@@ -79,6 +82,6 @@ if __name__ == "__main__":
 
     args = args()
     features = calc_features(args.s, args.params)
-    features = predict_class(features, model)
+    features = predict_class(features, args.xgbmodel)
 
     features.to_csv(args.output, index=False)
