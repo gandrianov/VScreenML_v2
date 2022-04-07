@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
     features.update(rdkit_wrapper.CalcRDKitFeatures(ligand_pdb))
 
-    features = pd.DataFrame(features)
+    features = pd.DataFrame([features])
     features.to_csv(sys.argv[3], index=False)
 
     #with open(sys.argv[3], "w") as fwr:
