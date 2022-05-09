@@ -1,6 +1,6 @@
 package:
   name: vscreenml_v2
-  version: !!str 0.0.1
+  version: !!str 0.0.2
 
 source:
   path: ./
@@ -13,13 +13,12 @@ requirements:
   build:
     - python
     - setuptools
-    # - oddt
 
   run:
     - python
-    #- pyrosetta
     - rdkit
     - oddt
+    - xgboost
 
 about:
   home: https://github.com/gandrianov/VScreenML_v2
