@@ -21,7 +21,9 @@ conda install -c gandrianov vscreenml_v2
 
 The most packages should be installed automatically with VScreenML2. But PyRosetta should be installed manually because of licensing. To obtain credentials for PyRosetta, you need to apply for licence on [UW website](https://els2.comotion.uw.edu/product/pyrosetta). In the end you will get login and password that will be used for the installation:
 
-```conda install -c https://<LOGIN>:<PASSWORD>conda.graylab.jhu.edu pyrosetta```
+```
+conda install -c https://<LOGIN>:<PASSWORD>conda.graylab.jhu.edu pyrosetta
+```
 
 **Usage**
 
@@ -49,7 +51,7 @@ predict_class.py -features <FEATURES>.csv -output <PREDICTIONS>.csv
 
 ### Copyright
 
-Copyright (c) 2021, Grigorii Andrianov
+Copyright (c) 2022, Grigorii Andrianov
 
 
 #### Acknowledgements
