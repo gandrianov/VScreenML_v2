@@ -72,7 +72,10 @@ if __name__ == '__main__':
     
     posemetric_calculator = pyrosetta_calculators.PoseMetricCalculator(packstat_oversample=args.packstat_oversample)
     features["HBInterface"] = posemetric_calculator.GetHBInterface(bound_pose, unbound_pose)
-    features["TotalPackStat"] = posemetric_calculator.GetTotalPackStat(bound_pose, unbound_pose)
+
+    if args.packstat_oversample != 0:
+        features["TotalPackStat"] = posemetric_calculator.GetTotalPackStat(bound_pose, unbound_pose)
+    
     features["InterfaceUnsat"] = posemetric_calculator.GetInterfaceUnsat(bound_pose, unbound_pose)
 
     ligand_pdb_string = pyrosetta_wrapper.GetPDBStringFromPose(ligand_pose)
